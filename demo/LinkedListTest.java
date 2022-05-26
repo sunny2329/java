@@ -1,10 +1,8 @@
 import java.util.LinkedList;
 import java.util.Iterator;
-
 public class LinkedListTest {
   public static void main(String[] args) {
     var ali = new LinkedList<Integer>();
-
     //append elements
     for (int i = 1; i<=10; i++) ali.add(i);
     //remove elements

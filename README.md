@@ -1,7 +1,8 @@
 # Java Tutorial
 
-This tutorial is open source and is available on Sage-Code homepage.
+This tutorial is open source.
 
-[Sage-Code Java Tutorial](https://sagecode.net/java/index.html)
+Published here: [Java Tutorial](https://sagecode.net/java/index.html)
 
-Enjoy!
+---
+Copyright (c) Sage-Code 2022

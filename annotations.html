@@ -43,6 +43,39 @@
 Annotations, a form of metadata, provide data about a program that is not part of the program itself. Annotations have no direct effect on the operation of the code they annotate.
 </div>
 
+<h4>Annotation Syntax</h4>
+
+<pre><code class="language-java">
+@annotation
+@annotation(value)
+@annotation(value, value, ...) 
+@annotation(name=value) 
+@annotation(name=value, name=value ...)
+</code></pre>
+
+<h4>Ussing annotations</h4>
+
+<p>1. Annotations have multiple use cases. It can be used for declaration statements, above the declaration in a single line or multiple lines. Also more then one annotations can apply to one declaration.<p>
+
+<p>2. As of the Java SE 8 release, annotations can also be applied to the use of types. Here are some examples:
+
+<pre><code class="language-java"> 
+//Class instance creation expression
+      new @Interned MyObject();
+//Type cast with annotation
+      myString = (@NonNull String) str;
+//Implementation clause
+      class UnmodifiableList&lt;T&gt; implements
+          @Readonly List&lt;@Readonly T&gt; { ... }
+//Thrown exception declaration
+      void monitorTemperature() throws
+          @Critical TemperatureException { ... }
+</code></pre>
+
+<p>Examples:</p>
+
+
+<a href="https://docs.oracle.com/javase/tutorial/java/annotations/basics.html">Annotations DOC</a>
 
 <!-- work in progress-->
 

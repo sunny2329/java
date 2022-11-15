@@ -1,8 +1,8 @@
 <html><head>
   <meta charset="utf-8">
-  <meta name="description" content="Java programming free tutorial by Sage-Code.">
+  <meta name="description" content="Introduction to packages in Java. Fundamental concepts presented by Sage-Code Laboratory.">
   <meta name="author" content="Elucian Moise">
-  <meta name="keywords" content="language, syntax, programming, tutorial">
+  <meta name="keywords" content="language, java, syntax, classpath, import, static import, package, packages">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Website title -->
@@ -37,8 +37,7 @@
 <h2>Java Packages</h2>
 
 
-<div class="alert alert-secondary shadow-sm">A package is group of related classes, interfaces, enumerations, and annotation types,  providing <em>access protection</em> and <em>name space management</em>.
-</div>
+<div class="alert alert-secondary shadow-sm">A package is group of related classes, interfaces, enumerations, and annotation types,  providing <em>access protection</em> and <em>name space management</em>.</div>
 
 <p>Java platform has several packages that are providing support for basic data structures, functions and algorithms that are built-in. You need to learn these packages because they are part of Java language.</p>
 
@@ -64,10 +63,12 @@
 <pre><code class="language-java">/* file description */
 package package_name
 
+/* define public members */
 public interface my_interface { ... }
 
 public class my_class { ... }
 
+/* define private members */
 private class clas1 { ... }
 
 private class clas2 { ... }
@@ -86,6 +87,7 @@ private class clas2 { ... }
 
 <pre><code class="language-java">/*  utopic package */
 package net.sagecode.tor.utopic
+...
 </code></pre>
 
 <div class="alert alert-info"><b>Important: </b>Java packages do not follow this convention. Java was invented bu Sun but it was purcessed by Oracle. So normally all Java packages should have been renamed. Sun domain no longer exist. Fortunately someone was smart and all Java system packages start with java or javax. So "java" is now a reserved package name.</div>
@@ -131,13 +133,13 @@ net.sagecode.tor.Utopic
 
 <h4>Using CLASSPATH</h4>
 
-<p>You can use a distribute architecture for your application. Some of the classes can be stored in a different folder. Java JVM can find classes using parameters but also system variable CLASSPATH</p>
+<p>You can use a distribute architecture for your application. Some of the classes can be stored in a different folder. Java JVM can find classes using multiple parameters but also cam search in folders designated by the system variable called CLASSPATH.</p>
 
-<p>CLASSPATH can contain a list of folders separated by semicolon. In the claspath you can point to different libraries that you use in your applications. These are usually installed in your project folder or in java home folder JAVA_HOME</p>
+<p>CLASSPATH if set, contains a list of folders separated by semicolon. These folders can contain java classes that you use in your applications. The classpath folders can be subfolders in your project or in java lib folder $JAVA_HOME/lib or a subfolder of lib.</p>
 
 <p>CLASSPATH is an environment variable that you can set differently in Windows vs Linux. You should know how to do this if you know your OS. Otherwise I advice you to follow Software Engineering class.</p>
 
-<pre><code class="language-outout"
+<pre><code class="language-output"
 
 # In Windows:   
 C:\> set CLASSPATH
@@ -148,7 +150,7 @@ C:\> set CLASSPATH
 
 <p>Sometimes you need to clear the CLASSPATH for your session to run a test. To delete the current contents of the CLASSPATH variable, use these commands:</p>
 
-<pre><code class="language-outout">
+<pre><code class="language-output">
 # On Windows:   
 C:\> set CLASSPATH=
 
@@ -157,7 +159,11 @@ C:\> set CLASSPATH=
 % export CLASSPATH
 </code></pre>
 
-<p>To set the CLASSPATH variable, you can use the user interface on Windows. There is a global CLSSPATH and a user specific CLASSPATH. On Linux you can edit environment variables in /etc/ configuration files or you can use these command line or Bash commands to set a temporary CLASSPATH that will be lost when you stop your session.</p>
+<p>To set the CLASSPATH variable, you can use the user interface on Windows. There is a global CLSSPATH and a user specific CLASSPATH. On Linux you can edit environment variables in /etc/environment or .profile configuration files.</p> 
+
+<h4>Reset CLASSPATH</h4>
+
+<p>For temporary altering the CLASSPATH you can use these command line or Bash commands to set a temporary CLASSPATH that will be lost when you stop your session.</p>
 
 
 <pre><code class="language-outout">

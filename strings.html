@@ -67,7 +67,7 @@ System.out.println(helloString); // expect: hello world
 
 <h4>Text block:</h4>
 
-<pre><code class="language-java line-numbers">/* concatenate strings with + */
+<pre><code class="language-java line-numbers">/* multi-line strings */
 public class TextBlock {
   public static void main(String[] args) {
     System.out.println('T');
@@ -81,7 +81,7 @@ public class TextBlock {
 }
 </code></pre>
 
-<p>In this example I have used dots instead of spaces for extra indentation that is removed by the compiler. The position of the triple quotes is very important for this to happen correctly.</p>
+<p>In this example the position of the triple quotes is very important. The intentation is removed and the %s placeholder is replaced by "method". A triple quoted string is handled almost like a normal string.</p>
 
 <pre><code class="language-output"
 >This is a text block.

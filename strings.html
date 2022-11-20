@@ -62,42 +62,89 @@ System.out.println(helloString); // expect: hello world
 
 <h2>Longer Strings</h2>
 
-<p>Java programming language does not permit literal strings to span lines in source files, so you must use the + concatenation operator at the end of each line in a multi-line string. Breaking strings between lines using the + concatenation is very common.</p>
+<p>Java programming language enable strings to span multiple lines.
+ of code. This is a special feature in Java called "text block". These are triple quoted strings, similar to Python.</p>
 
-<p><b>For example:</b></p>
+<h4>Text block:</h4>
 
-<pre><code class="language-java">/* concatenate strings with + */
-String quote =
-    "Now is the time for all good " +
-    "men to come to the aid of their country.";
+<pre><code class="language-java line-numbers">/* concatenate strings with + */
+public class TextBlock {
+  public static void main(String[] args) {
+    System.out.println('T');
+    var text = """
+        This is a text block.
+        You can use %s formatted()
+        with text block templates.
+        """.formatted("method");
+    System.out.println(text);
+  }
+}
 </code></pre>
+
+<p>In this example I have used dots instead of spaces for extra indentation that is removed by the compiler. The position of the triple quotes is very important for this to happen correctly.</p>
+
+<pre><code class="language-output"
+>This is a text block.
+You can use method formatted()
+with text block templates.
+</code></pre>
+
+<hr>
+<div class="alert alert-info"><b>Notes: </b>There are many details related to text blocks, but the most intresting is that extra indentation and triling spaces are detected and automaticly removed by the compiler using a special logic as in next example:</div>
+
+<pre><code class="language-java line-numbers"
+>void writeHTML() {
+    String html = """
+········    &lt;html>
+········        &lt;body>
+········            &lt;p>Hello World.&lt;/p>
+········        &lt;/body>
+········    &lt;/html>
+········""";
+    System.out.print(html);
+}
+</code></pre>
+
+<p>In this example I have used dots instead of spaces for extra indentation that is removed by the compiler. The position of the triple quotes is very important for this to happen correctly.</p>
+
+<pre><code class="language-output">
+    &lt;html>
+        &lt;body>
+            &lt;p>Hello World.&lt;/p>
+        &lt;/body>
+    &lt;/html>
+</code></pre>
+
+<p>External article: <a href="https://docs.oracle.com/en/java/javase/15/text-blocks/index.html" target="_blank">Java Text Blocks</a> </p>
 
 <h2>Concatenate Strings</h2>
 
 <p>The String class includes a method for concatenating two strings. You can use the concat() method with string literals or variables. Since a string literal is an object, we can use dot operator to invoke its method: .concat() like in example below:</p>
 
 <pre><code class="language-java">/* concatenate two strings */
-String result = "My message is ".concat("Hello, world" + "!");
+String quote =
+    "Now is the time for all good " +
+    "men to come to the aid of their country.";
+
+String result = "My message is: ".concat("Hello, world!");
 </code></pre>
 
 
 <h2>Formatting &amp; Printing</h2>
 
-<p>We saw the use of the println() and print() methods for printing strings to standard output (System.out).
-We could use string concatenation to print smarter messages. What if we have some numbers to print?
-We must convert the number to string then concatenate. That is a lot of code to write. Is there a better way?</p>
+<p>We saw the use of the println() and print() methods for printing strings to standard output (System.out). We could use string concatenation to print smarter messages. What if we have some numbers to print? We must convert the number to string then concatenate. That is a lot of code to write. Is there a better way?</p>
 
 <p>Yes there is! Java has other methods, however, that allow you to exercise much more control over your print output when numbers are included. The java.io package includes a PrintStream class that has two formatting methods that you can use to replace print and println. These methods are: format and printf.</p>
 
-<p><b>Format Method Signature:</b><p>
+<p><b>Format Method:</b><p>
 
 <pre><code class="language-java">public PrintStream format(String format, Object... args)</code></pre>
 
 <p>Parameter: "format" is a string that specifies the formatting to be used and args is a list of the variables to be printed using that formatting. It is a string that has inside so called: <em>"format specifiers"</em> that are replaced by strings to produce a result. </p>
 
 <p>Format specifiers begin with a percent sign (%) and end with a converter. The converter is a character indicating the type of argument to be formatted. In between the percent sign (%) and the converter you can have optional flags and specifiers. There are many converters, flags, and specifiers, which are documented in
-<a><href = "https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html" target = "_blank"
-rel = "noreferrer noopener nofollow">java.util.Formatter.</p>
+<a href = "https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html" target = "_blank"
+rel = "noreferrer noopener nofollow">java.util.Formatter.</a></p>
 
 <p><b>Ok, here is a basic example:</b><p>
 

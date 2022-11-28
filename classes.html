@@ -231,7 +231,15 @@ inside any other method that is not static.
 <p>Anonymous classes are local classes declared and instantiatetd at the same time. You can use them only once, to instantiate a single object.</p>
 
 <pre class="line-numbers"><code class="language-java"
->HelloWorld frenchGreeting = new HelloWorld() {
+>interface HelloWorld {
+        public void greet();
+        public void greetSomeone(String someone);
+}
+
+class Main {
+  public static void main(String[] args) {
+ 
+    HelloWorld frenchGreeting = new HelloWorld() {
             String name = "tout le monde";
             public void greet() {
                 greetSomeone("tout le monde");
@@ -240,7 +248,11 @@ inside any other method that is not static.
                 name = someone;
                 System.out.println("Salut " + name);
             }
-        };
+    };   
+    frenchGreeting.greet();
+    frenchGreeting.greetSomeone("You");
+  }
+}
 </code></pre>
 
 <hr>
